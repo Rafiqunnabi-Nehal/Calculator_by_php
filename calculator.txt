@@ -1,0 +1,70 @@
+<!-- Calcultor by php code -->
+
+<!-- Functional php code -->
+
+<?php
+  if(isset($_POST['submit'])) {
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+    $operator = $_POST['operator'];
+
+    switch($operator) {
+      case "add":
+        $result = $num1 + $num2;
+        break;
+
+      case "subtract":
+        $result = $num1 - $num2;
+        break;
+
+      case "multiply":
+        $result = $num1 * $num2;
+        break;
+
+      case "divide":
+        $result = $num1 / $num2;
+        break;
+
+      default:
+        $result = "";
+    }
+  }
+?>
+
+<!-- html design part -->
+
+<html>
+  <head>
+    <title>Dynamic Calculator</title>
+  </head>
+
+  <body>
+    <h2>Dynamic Calculator</h2>
+
+    <form method="post" action="">
+      <label>Number 1:</label>
+      <input type="number" name="num1"><br><br>
+
+      <label>Number 2:</label>
+      <input type="number" name="num2"><br><br>
+
+      <label>Select Operator:</label>
+      <select name="operator">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply">*</option>
+        <option value="divide">/</option>
+      </select><br><br>
+
+      <input type="submit" name="submit" value="Calculate">
+    </form>
+
+<!-- Result run php code -->
+
+    <?php
+      if(isset($_POST['submit'])) {
+        echo "<p>Result: $result</p>";
+      }
+    ?>
+  </body>
+</html>
